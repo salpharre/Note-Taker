@@ -7,6 +7,8 @@ const $noteList = $(".list-container .list-group");
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+let Idee = "0";
+
 // A function for getting all notes from the db
 const getNotes = () => {
   return $.ajax({
@@ -50,10 +52,16 @@ const renderActiveNote = () => {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
+
+/////////id is here
 const handleNoteSave = function () {
+
+  //turn string into an integer, ++, then turn it back into a string(json stringify) and use .replace method to replace string in 
+
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
+    id: Idee
   };
 
   saveNote(newNote).then(() => {
