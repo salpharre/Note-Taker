@@ -57,7 +57,7 @@ const renderActiveNote = () => {
 const handleNoteSave = function () {
 
   //turn string into an integer, ++, then turn it back into a string(json stringify) and use .replace method to replace string in 
-
+  //or use moment js to add a date and time as the id, and then striginfy it
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),

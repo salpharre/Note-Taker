@@ -15,8 +15,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
 
 //Pulls the files that contains routes to the JSON file, db.json, and routes to html files, index.html and notes.html
-require("./routes/apiRoutes");
-require("./routes/htmlRoutes");
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 
 // Starts the server to begin listening
