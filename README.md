@@ -58,7 +58,7 @@ None
 
 ### Launch
 
-Date application releases: `June 22st, 2020`
+Date application releases: `June 23st, 2020`
 
 Link to webpage: coming soon!
 
