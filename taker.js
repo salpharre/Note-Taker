@@ -3,6 +3,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
+//Dependencies for routes
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
 
@@ -18,7 +19,7 @@ app.use(express.json());
 //allows server to use css and js
 app.use(express.static(path.join(__dirname, "/public")));
 
-
+//Set up Express app to use routes
 app.use(htmlRoutes);
 app.use(apiRoutes);
 

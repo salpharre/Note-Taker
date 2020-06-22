@@ -1,3 +1,4 @@
+//Variables holding jQueried classes
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
@@ -51,7 +52,7 @@ const renderActiveNote = () => {
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
-  
+  //every time save button is pressed a random number is generated and added to note object
   const randomNumber = Math.floor((Math.random() * 500) + 1)
   
   const newNote = {
@@ -59,7 +60,7 @@ const handleNoteSave = function () {
     text: $noteText.val(),
     id: randomNumber
   };
-
+  //calls ajax and passes new object and then renders notes
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -76,7 +77,7 @@ const handleNoteDelete = function (event) {
   if (activeNote.id === note.id) {
     activeNote = {};
   }
-
+  //Calls ajax and inserts id and then renders notes
   deleteNote(note.id).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -89,7 +90,7 @@ const handleNoteView = function () {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 const handleNewNoteView = function () {
   activeNote = {};
   renderActiveNote();
@@ -143,7 +144,7 @@ const renderNoteList = (notes) => {
 const getAndRenderNotes = () => {
   return getNotes().then(renderNoteList);
 };
-
+//Calls funcitons for on click events
 $saveNoteBtn.on("click", handleNoteSave);
 $noteList.on("click", ".list-group-item", handleNoteView);
 $newNoteBtn.on("click", handleNewNoteView);

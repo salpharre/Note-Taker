@@ -1,37 +1,29 @@
-//Linking routes to JSON file, db.json to pull(get), push(post) and delete to delete a specific note data
-
+//Dependencies
 const app = require("express").Router();
 const fs = require("fs");
 const path = require("path");
-
+//requires json file path
 const db = require("./db/db.json");
 
 //API GET Request
 //Sets up a route so notes that were saved are displayed on the webpage
 app.get("/api/notes", function (req, res) {
-
-    //res.sendFile(path.join(__dirname, "../db/db.json"))
+//reads json file and sends it back to client
     res.json(db);
 });
 
 //API POST Request
 //A route used to save new notes to db.json file
 app.post("/api/notes", function (req, res) {
-
+//holds note object
     const newNote = req.body;
-
-    console.log(newNote);
-
+//parses json file 
     const savedNotes = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
-    console.log(savedNotes);
-
+//pushes note object to parsed json array
     savedNotes.push(newNote);
-
-    console.log(savedNotes);
-
-
+//stringify's updated parsed json array and rewrites json file
     fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(savedNotes));
-
+//returns note back to client
     return res.json(newNote);
 });
 
@@ -45,12 +37,7 @@ app.delete("/api/notes/:id", function (req, res) {
     //Reads and parses db.json file to compare against requested id
     let dbParsed = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
 
-    //Loop through each object in the array to compare requested id with ids in parsed file
-        // //If id is found, note object is emptied (erased)
-        // for (const i = 0; i < dbParsed.length; i++) {
-        //     if (idNote === dbParsed[i].id) {
-        //          dbParsed[i] = {};
-
+    //filters through parsed array to only return objects that don't match the id of the note to be deleted, and as such is subsequently deleted
     dbParsed = dbParsed.filter(note => {
         return note.id != idNote;
     });
@@ -60,7 +47,6 @@ app.delete("/api/notes/:id", function (req, res) {
     //Send updated file back to client
     return res.json(dbParsed);
 
-    //}
 });
 
 //export routes to be used in taker.js
