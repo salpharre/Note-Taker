@@ -40,22 +40,27 @@ app.post("/api/notes", function (req, res) {
 app.delete("/api/notes/:id", function (req, res) {
 
     //Holds resquest from user, narrowing in on the id
-    let idNote = req.body.id;
+    let idNote = req.params.id;
 
     //Reads and parses db.json file to compare against requested id
-    let dbParsed = JSON.parse(fs.readFileSync(db, "utf8"));
+    let dbParsed = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
 
+    //Loop through each object in the array to compare requested id with ids in parsed file
+        // //If id is found, note object is emptied (erased)
+        // for (const i = 0; i < dbParsed.length; i++) {
+        //     if (idNote === dbParsed[i].id) {
+        //          dbParsed[i] = {};
 
     dbParsed = dbParsed.filter(note => {
         return note.id != idNote;
     });
 
     //Stringify updated file and rewrite back to db.json
-    fs.writeFileSync(db, JSON.stringify(dbParsed));
+    fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(dbParsed));
     //Send updated file back to client
     return res.json(dbParsed);
 
-
+    //}
 });
 
 //export routes to be used in taker.js
