@@ -22,19 +22,13 @@ app.post("/api/notes", function (req, res) {
 
     console.log(newNote);
 
-    //const jsonNewNote = JSON.stringify(newNote);//"{\"title\":\"d\",\"text\":\"d\",\"id\":\"477\"}"
     const savedNotes = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
     console.log(savedNotes);
-
-
-    // savedNotes.push(newNote);
-    // console.log(savedNotes);
 
     savedNotes.push(newNote);
 
     console.log(savedNotes);
 
-    //db.push(newNote);
 
     fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(savedNotes));
 
