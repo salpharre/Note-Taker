@@ -2,7 +2,7 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/salpharre/Note-Taker) ![npm version](https://badge.fury.io/js/inquirer.svg)
 
-Application that uses express to save, retrieve and delete notes written on web application, launched through Heroku.
+Application that uses express to save, retrieve and delete notes written on web application to a JSON file, launched through Heroku.
 
 ## Table of Contents
 
@@ -41,7 +41,6 @@ Launched web application will look like below:
 * Node v12.16.1
 * npm Express
 * Heroku
-* Moment.js
 
 ### Tests
 
@@ -59,7 +58,7 @@ None
 
 ### Launch
 
-Date application releases: `June 21st, 2020`
+Date application releases: `June 22st, 2020`
 
 Link to webpage: coming soon!
 
