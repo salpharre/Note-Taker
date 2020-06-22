@@ -7,7 +7,6 @@ const $noteList = $(".list-container .list-group");
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-let Idee = "0";
 
 // A function for getting all notes from the db
 const getNotes = () => {
@@ -57,7 +56,9 @@ const renderActiveNote = () => {
 const handleNoteSave = function () {
 
   //turn string into an integer, ++, then turn it back into a string(json stringify) and use .replace method to replace string in 
-  //or use moment js to add a date and time as the id, and then striginfy it
+  //or use moment js to add a date and time as the id
+  const 
+
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),

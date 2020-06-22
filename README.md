@@ -41,6 +41,7 @@ Launched web application will look like below:
 * Node v12.16.1
 * npm Express
 * Heroku
+* Moment.js
 
 ### Tests
 

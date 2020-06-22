@@ -10,11 +10,45 @@ const db = require("../db/db.json");
 module.exports = function (app) {
 
     //API GET Request
-
+    //Sets up a route so notes that were saved are displayed on the webpage
+    app.get("/api/notes", function(req, res) {
+        const notes = fs.readFileSync(db, "utf8")
+        
+        return res.json(notes);
+      });
 
     //API POST Request
+    //A route used to save new notes to db.json file
+    app.post("/api/notes", function(req, res) {
 
+        const newNote = req.body;
+
+        db.push(newNote);
+
+        return res.json(newNote);
+      });
     
     //API DELETE Request
+    //A route to delete any notes when delete button is pressed by selecting the id
+    app.delete("/api/notes/:id", function(req, res) {
 
+        //Holds resquest from user, narrowing in on the id
+        const idNote = req.params.id;
+
+        //Reads and parses db.json file to compare against requested id
+        const dbParsed = JSON.parse(fs.readFileSync(db, "utf8"));
+
+        //Loop through each object in the array to compare requested id with ids in parsed file
+        //If id is found, note object is emptied (erased)
+        for (const i = 0; i < dbParsed.length; i++) {
+            if (idNote === dbParsed[i].id) {
+                dbParsed[i] = {};
+
+                //Stringify updated file and rewrite back to db.json
+                fs.writeFileSync(db, JSON.stringify(dbParsed));
+                //Send updated file back to client
+                return res.json(dbParsed);
+            }
+        }
+      });
 };
