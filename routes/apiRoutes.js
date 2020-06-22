@@ -7,25 +7,28 @@ const db = require("../db/db.json");
 
 //export routes to be used in taker.js
 
-module.exports = function (app) {
+module.exports = function (app, fs) {
 
     //API GET Request
     //Sets up a route so notes that were saved are displayed on the webpage
     app.get("/api/notes", function(req, res) {
-        const notes = fs.readFileSync(db, "utf8")
         
-        return res.json(notes);
+        res.json(db);
       });
 
     //API POST Request
     //A route used to save new notes to db.json file
     app.post("/api/notes", function(req, res) {
 
+        const savedNotes = JSON.parse(fs.readFileSync(db, "utf8"));
+
         const newNote = req.body;
 
-        db.push(newNote);
+        savedNotes.push(newNote);
 
-        return res.json(newNote);
+        fs.writeFileSync(db, JSON.stringify(savedNotes));
+
+        res.json(newNote);
       });
     
     //API DELETE Request
