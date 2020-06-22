@@ -20,15 +20,17 @@ module.exports = function (app, fs) {
     //A route used to save new notes to db.json file
     app.post("/api/notes", function(req, res) {
 
-        const savedNotes = JSON.parse(fs.readFileSync(db, "utf8"));
+        //const savedNotes = JSON.parse(fs.readFileSync(db, "utf8"));
 
         const newNote = req.body;
 
-        savedNotes.push(newNote);
+        //savedNotes.push(newNote);
 
-        fs.writeFileSync(db, JSON.stringify(savedNotes));
+        db.push(newNote);
 
-        res.json(newNote);
+        //fs.writeFileSync(db, JSON.stringify(savedNotes));
+
+        //res.json(newNote);
       });
     
     //API DELETE Request

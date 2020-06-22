@@ -51,20 +51,12 @@ const renderActiveNote = () => {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
-
-/////////id is here
-const handleNoteSave = function () {
-
-  //turn string into an integer, ++, then turn it back into a string(json stringify) and use .replace method to replace string in 
-  //or use moment js to add a date and time as the id
-
-  //Initializing moment library
-  const dateHour = moment().format("LLL");
+const handleNoteSave = function () {  
 
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
-    id: dateHour
+    id: Math.floor((Math.random() * 500) + 1)
   };
 
   saveNote(newNote).then(() => {
