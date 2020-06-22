@@ -4,7 +4,7 @@ const app = require("express").Router();
 const fs = require("fs");
 const path = require("path");
 
-const db = require("../db/db.json");
+const db = require("./db/db.json");
 
 //API GET Request
 //Sets up a route so notes that were saved are displayed on the webpage
@@ -22,20 +22,21 @@ app.post("/api/notes", function (req, res) {
 
     console.log(newNote);
 
-    //const jsonNewNote = JSON.stringify(newNote);
-    // const savedNotes = JSON.parse(fs.readFileSync("../db/db.json", "utf8"));
-    // console.log(savedNotes);
+    //const jsonNewNote = JSON.stringify(newNote);//"{\"title\":\"d\",\"text\":\"d\",\"id\":\"477\"}"
+    const savedNotes = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
+    console.log(savedNotes);
+
 
     // savedNotes.push(newNote);
     // console.log(savedNotes);
 
-    db.push(newNote);
+    savedNotes.push(newNote);
 
-    console.log(db);
+    console.log(savedNotes);
 
     //db.push(newNote);
 
-    //fs.writeFileSync("../db/db.json", JSON.stringify(savedNotes));
+    fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(savedNotes));
 
     return res.json(newNote);
 });
