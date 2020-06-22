@@ -57,12 +57,14 @@ const handleNoteSave = function () {
 
   //turn string into an integer, ++, then turn it back into a string(json stringify) and use .replace method to replace string in 
   //or use moment js to add a date and time as the id
-  const 
+
+  //Initializing moment library
+  const dateHour = moment().format("LLL");
 
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
-    id: Idee
+    id: dateHour
   };
 
   saveNote(newNote).then(() => {
