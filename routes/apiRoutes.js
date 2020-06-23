@@ -34,6 +34,7 @@ app.delete("/api/notes/:id", function (req, res) {
 
     //Holds resquest from user, narrowing in on the id
     let idNote = req.params.id;
+    console.log(idNote);
 
     //Reads and parses db.json file to compare against requested id
     let dbParsed = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
@@ -47,7 +48,6 @@ app.delete("/api/notes/:id", function (req, res) {
     fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(dbParsed));
     //Send updated file back to client
     return res.json(dbParsed);
-    console.log(dbParsed);
 
 });
 
