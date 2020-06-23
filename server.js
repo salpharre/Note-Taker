@@ -1,8 +1,6 @@
 //Dependencies and packages needed to make application work
 const express = require("express");
 
-const path = require("path");
-
 //Dependencies for routes
 const htmlRoutes = require("./routes/htmlRoutes");
 const apiRoutes = require("./routes/apiRoutes");
@@ -14,8 +12,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing and link external JS
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //allows server to use css and js and access public files
 app.use(express.static("public"));
 
