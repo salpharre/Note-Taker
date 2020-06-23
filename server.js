@@ -1,6 +1,6 @@
 //Dependencies and packages needed to make application work
 const express = require("express");
-const fs = require("fs");
+
 const path = require("path");
 
 //Dependencies for routes

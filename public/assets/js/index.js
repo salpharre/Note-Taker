@@ -148,7 +148,7 @@ const getAndRenderNotes = () => {
 $saveNoteBtn.on("click", handleNoteSave);
 $noteList.on("click", ".list-group-item", handleNoteView);
 $newNoteBtn.on("click", handleNewNoteView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
+$(".delete-note").on("click", handleNoteDelete);//change notelist to $(".delete-note") and remove ".delete-note from inside parantheses"
 $noteTitle.on("keyup", handleRenderSaveBtn);
 $noteText.on("keyup", handleRenderSaveBtn);
 
