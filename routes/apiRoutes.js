@@ -22,12 +22,10 @@ app.post("/api/notes", function (req, res) {
     const savedNotes = JSON.parse(fs.readFileSync(__dirname + "/db/db.json", "utf8"));
 //pushes note object to parsed json array
     savedNotes.push(newNote);
-    console.log(savedNotes);
 //stringify's updated parsed json array and rewrites json file
     fs.writeFileSync(__dirname + "/db/db.json", JSON.stringify(savedNotes));
 //returns note back to client
     return res.json(newNote);
-    console.log(newNote);
 });
 
 //API DELETE Request
