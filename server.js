@@ -16,8 +16,8 @@ const PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing and link external JS
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//allows server to use css and js
-app.use(express.static(path.join(__dirname, "/public")));
+//allows server to use css and js and access public files
+app.use(express.static("public"));
 
 //Set up Express app to use routes
 app.use(htmlRoutes);
