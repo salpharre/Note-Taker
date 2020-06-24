@@ -23,17 +23,6 @@ Enter the following to install:
 
 Use this application to create every day notes for yourself, click the pencil button to create a new note. To save the note, click the save button where it will be sent to a JSON file. A list of saved notes will appear to the left of the text area, a red delete button will appear next to it if you wish to delete it.
 
-
-For demo:
-
-[To youtube!] - coming soon!
-
-Launched web application will look like below:
-
-![example]() - coming soon!
-
-[To webpage!] - coming soon!
-
 ### Technology
 
 * VS Code v1.46.1
@@ -60,5 +49,5 @@ None
 
 Date application releases: `June 23st, 2020`
 
-Link to webpage: coming soon!
+Link to webpage: [To the webpage!](https://note-taker345.herokuapp.com/)
 
