@@ -37,7 +37,7 @@ Use this application to create every day notes for yourself, click the pencil bu
 
 ### License
 
-None
+[MIT License](https://github.com/salpharre/Note-Taker/blob/main/LICENSE)
 
 ### Launch
 
