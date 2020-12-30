@@ -41,7 +41,8 @@ Use this application to create every day notes for yourself, click the pencil bu
 
 ### Launch
 
-Date application releases: `June 23st, 2020`
+1.0.0 Release Date: `June 23st, 2020`
+2.0.0 Release Date: TBD
 
 Link to webpage: [To the webpage!](https://note-taker345.herokuapp.com/)
 
