@@ -1,11 +1,12 @@
 {
   "name": "note-taker",
-  "version": "1.0.0",
-  "description": "Application that uses Express to save, retrieve, and delete notes",
+  "version": "2.0.0",
+  "description": "Application that uses MySQL to save, retrieve, and delete notes",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,9 @@
   },
   "homepage": "https://github.com/salpharre/Note-Taker#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
