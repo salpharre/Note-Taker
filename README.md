@@ -31,12 +31,6 @@ Use this application to create every day notes for yourself, click the pencil bu
 * npm Express
 * Heroku
 
-### Tests
-
-Enter the following to test:
-
-`no tests included`
-
 ### Contributors
 
 * Sandra Arredondo
