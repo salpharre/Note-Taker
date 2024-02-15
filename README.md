@@ -49,5 +49,3 @@ None
 
 Date application releases: `June 23st, 2020`
 
-Link to webpage: [To the webpage!](https://note-taker345.herokuapp.com/)
-
